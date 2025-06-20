@@ -18,13 +18,9 @@ connectCloudinary()
 
 // middlewares 
 app.use(express.json())
-app.use(cors({
-  origin: ["https://thinkafter-online-examination-system-z3hp.onrender.com", "http://localhost:3000"],
-  credentials: true,
-}));
+app.use(cors());
 
 // ✅ Add this line BELOW app.use(cors()) and app.use(express.json())
-app.use('/uploads', express.static('uploads'));
 
 
 // eyJhbGciOiJIUzI1NiJ9.YWRtaW5AZ21haWwuY29taGVsbG9hZG1pbg.JaB5h5oQ2CQ6d0_jt_8UbOt9nlIN8Pob0khVkqXztmY
