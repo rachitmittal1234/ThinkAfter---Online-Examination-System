@@ -23,7 +23,7 @@ import ProfilePage from './pages/ProfilePage'
 import FeedbackPage from './pages/FeedbackPage'
 
 
-export const backendUrl = "https://thinkafter-online-examination-system.onrender.com/"
+export const backendUrl = "https://think-after-online-examination-syst-omega.vercel.app/"
 
 const App = () => {
   return (
