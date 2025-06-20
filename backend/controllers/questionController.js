@@ -18,7 +18,6 @@ export const addQuestion = async (req, res) => {
       testIds, // optional
     } = req.body;
 
-    const image = req.file ? req.file.filename : null;
 
     let validTestIds = [];
 
@@ -32,7 +31,6 @@ export const addQuestion = async (req, res) => {
         // Create question
         const newQuestion = new Question({
           questionText,
-          image,
           options,
           correctAnswer,
           positiveMarks,
@@ -61,7 +59,6 @@ export const addQuestion = async (req, res) => {
     // If no testIds, save question without test association
     const newQuestion = new Question({
       questionText,
-      image,
       options,
       correctAnswer,
       positiveMarks,
@@ -122,26 +119,10 @@ export const updateQuestion = async (req, res) => {
     }
 
     // Handle image removal if requested
-    if (req.body.removeImage === 'true' && question.image) {
-      const imagePath = path.join('uploads/questions', question.image);
-      if (fs.existsSync(imagePath)) {
-        fs.unlinkSync(imagePath); // delete image from disk
-      }
-      question.image = null; // remove reference
-    }
+    
 
     // Handle new image upload
-    if (req.file) {
-      // Delete old image if it exists
-      if (question.image) {
-        const oldImagePath = path.join('uploads/questions', question.image);
-        if (fs.existsSync(oldImagePath)) {
-          fs.unlinkSync(oldImagePath);
-        }
-      }
-
-      question.image = req.file.filename;
-    }
+    
 
     // Update other fields
     question.questionText = updatedData.questionText;
