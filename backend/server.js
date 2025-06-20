@@ -44,5 +44,5 @@ app.use('/api/anonymous', anonymousMessageRouter);
 app.get('/', (req,res)=>{
     res.send('API WORKING')
 })
+export default app;
 
-app.listen(port,()=> console.log('Server running on  PORT:' + port))
