@@ -26,7 +26,7 @@ import AdminContactMessagesPage from './pages/AdminContactMessagesPage.jsx'
 import FeedbackPage from './pages/FeedbackPage.jsx'
 
 
-export const backendUrl = import.meta.env.VITE_BACKEND_URL
+export const backendUrl = "https://thinkafter-online-examination-system.onrender.com/"
 
 const App = () => {
 
